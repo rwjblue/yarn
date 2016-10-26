@@ -134,6 +134,8 @@ export class Install {
     this.config = config;
     this.flags = normalizeFlags(config, flags);
 
+    this.config.production = this.flags.production;
+
     this.resolver = new PackageResolver(config, lockfile);
     this.fetcher = new PackageFetcher(config, this.resolver);
     this.compatibility = new PackageCompatibility(config, this.resolver, this.flags.ignoreEngines);
